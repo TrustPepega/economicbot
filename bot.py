@@ -73,17 +73,17 @@ async def on_message(message):
 	elif (message.content.startswith('+')):
 		pass
 	else:
-		if cur.execute("SELECT mupd FROM users WHERE id = {}".format(ctx.author.id)).fetchone()[0] == 3:
+		if cur.execute("SELECT mupd FROM users WHERE id = {}".format(message.author.id)).fetchone()[0] == 3:
 			igb = random.randint(30, 50)
 
 			cur.execute(f"UPDATE users SET cash = cash + {igb} WHERE id = {message.author.id}")
 			connect.commit()
-		elif cur.execute("SELECT mupd FROM users WHERE id = {}".format(ctx.author.id)).fetchone()[0] == 2:
+		elif cur.execute("SELECT mupd FROM users WHERE id = {}".format(message.author.id)).fetchone()[0] == 2:
 			igb = random.randint(15, 25)
 
 			cur.execute(f"UPDATE users SET cash = cash + {igb} WHERE id = {message.author.id}")
 			connect.commit()
-		elif cur.execute("SELECT mupd FROM users WHERE id = {}".format(ctx.author.id)).fetchone()[0] == 1:
+		elif cur.execute("SELECT mupd FROM users WHERE id = {}".format(message.author.id)).fetchone()[0] == 1:
 			igb = random.randint(3, 10)
 
 			cur.execute(f"UPDATE users SET cash = cash + {igb} WHERE id = {message.author.id}")
